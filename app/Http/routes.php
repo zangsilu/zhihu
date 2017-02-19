@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('api',function(){
+   return [
+      'version' => '1.0'
+   ] ;
+});
+
+Route::any('api/user',function(){
+
+    $userModel = new \App\User();
+    return $userModel->register();
+
+});
